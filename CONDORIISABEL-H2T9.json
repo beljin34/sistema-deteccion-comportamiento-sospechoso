@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "CONDORIISABEL-H2T9",
+    "_postman_id": "b9f1c9a8-0000-4e6b-aaaa-1234567890ab",
+    "description": "Colección para probar la API del detector (local)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/health",
+          "host": ["{{base_url}}"],
+          "path": ["api","health"]
+        }
+      }
+    },
+    {
+      "name": "Get Events",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/events",
+          "host": ["{{base_url}}"],
+          "path": ["api","events"]
+        }
+      }
+    },
+    {
+      "name": "Post Event (simulate)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"loitering\",\n  \"x\": 320,\n  \"y\": 240,\n  \"details\": \"simulated event from Postman\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/events",
+          "host": ["{{base_url}}"],
+          "path": ["api","events"]
+        }
+      }
+    },
+    {
+      "name": "Get Config",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/config",
+          "host": ["{{base_url}}"],
+          "path": ["api","config"]
+        }
+      }
+    },
+    {
+      "name": "Put Config (update)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"min_area\": 600,\n  \"loiter_frames\": 100\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/config",
+          "host": ["{{base_url}}"],
+          "path": ["api","config"]
+        }
+      }
+    },
+    {
+      "name": "Get Video URL",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/video_url",
+          "host": ["{{base_url}}"],
+          "path": ["api","video_url"]
+        }
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000", "type": "string" }
+  ]
+}
